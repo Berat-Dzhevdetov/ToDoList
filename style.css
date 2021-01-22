@@ -1,0 +1,100 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ff6666;
+    color: #f3f3f3;
+    font-size: 1.5rem;
+}
+
+.container {
+    width: 49.5%;
+    background-color: #323232;
+    text-align: center;
+    margin-top: 10%;
+    display: inline-block;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+ul li img {
+    width: 50px;
+    height: 50px;
+}
+
+ul li img:hover {
+    cursor: pointer;
+}
+
+input[type=text] {
+    width: 60%;
+    color: #f3f3f3;
+    background-color: #323232;
+    outline: none;
+    border: none;
+    border-bottom: oldlace 1px solid;
+    height: 50px;
+    font-size: large;
+    font-size: 2rem;
+}
+
+input[type=submit] {
+    width: 20%;
+    color: #f3f3f3;
+    background-color: #323232;
+    height: 50px;
+    font-size: large;
+    font-size: 15px;
+}
+
+.tasks p {
+    text-align: left;
+    padding: 5px;
+    width: 80%;
+}
+
+.task img {
+    width: 50px;
+    height: 50px;
+}
+
+.task {
+    padding: 10px;
+}
+
+.left-part {
+    width: 80%;
+    float: left;
+    height: auto;
+    max-height: 150px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    overflow-y: scroll
+}
+
+.right-part {
+    width: 20%;
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.left-part ::-webkit-scrollbar {
+    display: none;
+}
+
+.left-part {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.task img:hover+path {
+    fill: #ff6666;
+    cursor: pointer;
+}
