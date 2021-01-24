@@ -94,3 +94,45 @@ function createNewDoneTask(doneTask) {
 function renderDoneTasks(doneTask) {
     createNewDoneTask(doneTask);
 }
+
+let switchLights = document.getElementById('switchLights');
+switchLights.addEventListener('click', (e) => {
+
+    setColorState(!getCurrentStateOfColor());
+    changeTheme(e.target.checked)
+})
+
+function changeTheme(currentState) {
+    let backOfSlider = document.querySelector('.round');
+    let contenters = Array.from(document.querySelectorAll('.container'));
+    let inputs = Array.from(document.querySelectorAll('input'));
+    let currentStateInWords = document.getElementById('currentStateInWords');
+    if (currentState == true) {
+        backOfSlider.style.backgroundColor = "rgb(229,229,229)";
+        document.body.style.backgroundColor = "rgb(255, 102, 102)";
+        contenters.forEach((c) => {
+            c.style.backgroundColor = 'rgb(50,50,50)';
+            c.style.color = 'rgb(243,243,243)';
+        });
+        inputs.forEach(i => {
+            i.style.color = 'rgb(229,229,229)'
+            i.style.backgroundColor = 'rgb(50,50,50)'
+        })
+        currentStateInWords.style.color = 'rgb(229,229,229)';
+        currentStateInWords.innerHTML = 'Light Red Theme';
+    } else {
+        backOfSlider.style.backgroundColor = "rgb(255, 102, 102)";
+        document.body.style.backgroundColor = 'rgb(243, 243, 243)';
+        contenters.forEach((c) => {
+            c.style.backgroundColor = 'rgb(229,229,229)';
+            c.style.color = 'black';
+        });
+        inputs.forEach(i => {
+            i.style.color = 'black'
+            i.style.backgroundColor = 'rgb(204,204,204)'
+        })
+        currentStateInWords.style.color = 'black';
+        currentStateInWords.innerHTML = 'Light Theme';
+    }
+    setColorState(currentState);
+}

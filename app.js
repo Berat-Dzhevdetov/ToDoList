@@ -30,6 +30,8 @@ function createAndVisualizateNewTaskAndCheck(inputTaskId) {
     for (let i = 0; i < doneTaskArray.length; i++) {
         renderDoneTasks(doneTaskArray[i]);
     }
+    initializeColorState();
+    applyCurrentState();
 })()
 
 
@@ -135,4 +137,34 @@ function backToTodoTasks(e) {
     }
     setNewDoneArray(array);
     e.target.parentNode.remove();
+}
+
+
+
+
+
+
+function applyCurrentState() {
+    changeTheme(getCurrentStateOfColor());
+    document.getElementById('switchLights').checked = getCurrentStateOfColor();
+}
+
+function initializeColorState() {
+    if (localStorage.getItem("colorState") === null) {
+        setColorState(false);
+    }
+}
+
+function getCurrentStateOfColor() {
+    let temp = JSON.parse(localStorage.getItem("colorState"));
+    let state = temp.state;
+    return state
+}
+
+function setColorState(currentState = false) {
+    let obj = {
+        state: currentState
+    }
+    obj = JSON.stringify(obj);
+    localStorage.setItem("colorState", obj)
 }
